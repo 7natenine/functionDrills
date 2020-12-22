@@ -1,7 +1,7 @@
 
-function createGreeting(){ 
-  return "Hi, my name is Crhis and I'm 29 years old"
+function createGreeting(name, age){ 
+  return "Hi, my name is " + name + " and I'm " + age + " years old"
 }
 
-const greet1 = createGreeting();
+const greet1 = createGreeting('Chris', 29);
 console.log(greet1)
