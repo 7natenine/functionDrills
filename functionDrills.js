@@ -1,7 +1,7 @@
 
 function getYearOfBirth(age) {
   if(age>2020||age<0)
-    throw new Error("age can not be negative");
+    throw new Error("Age can not be negative");
   return 2020 - age;
 }
 
@@ -13,26 +13,13 @@ function createGreeting(name, age){
 function people(name,age){
   try {
     if(!age||!name)
-      throw new TypeError("Variables are null or undefined.")
+      throw new Error("Variables are null or undefined.")
     if(isNaN(age))
-      throw new ReferenceError("Age is not an intger.")
+      throw new TypeError("Age is not an intger.")
     const greet = createGreeting(name,age)
     console.log(greet)
   }catch (e) { 
-    switch (true){
-      case (e instanceof TypeError) : {
-        console.log('Type Error')
-        break;
-      }
-      case (e instanceof ReferenceError) : {
-        console.log('Reference Error/ Variable undefined.')
-        break;
-      }
-      default: {
-        console.log('Silly Goose! Your age must be wrong!')
-      }
-
-    }
+    console.error(e.message);
   }
 }
 
