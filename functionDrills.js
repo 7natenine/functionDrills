@@ -12,13 +12,32 @@ function createGreeting(name, age){
 
 function people(name,age){
   try {
+    if(!age||!name)
+      throw new TypeError("Variables are null or undefined.")
+    if(isNaN(age))
+      throw new ReferenceError("Age is not an intger.")
     const greet = createGreeting(name,age)
     console.log(greet)
-  }catch (err) { 
-    console.log('Silly Goose! Your age must be wrong!')
+  }catch (e) { 
+    switch (true){
+      case (e instanceof TypeError) : {
+        console.log('Type Error')
+        break;
+      }
+      case (e instanceof ReferenceError) : {
+        console.log('Reference Error/ Variable undefined.')
+        break;
+      }
+      default: {
+        console.log('Silly Goose! Your age must be wrong!')
+      }
+
+    }
   }
 }
 
 people('Chris', 29);
 people('Dan', -3);
 people('Ben', 2021);
+people('',);
+people('Sabrina','Lexi')
